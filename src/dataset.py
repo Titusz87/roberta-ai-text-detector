@@ -26,6 +26,11 @@ def find_cat_dog_lion_tiger_folders(start_path="."):
 
 
 # Dataset Download Function
+import os
+import gdown
+
+os.makedirs("../data", exist_ok=True)
+
 def download_data_from_shared_link(url, file_name):
     # Downloads dataset from a Google Drive shared link
     gdown.download(url=url, output=file_name)
