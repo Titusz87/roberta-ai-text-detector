@@ -25,3 +25,6 @@ huggingface/
 # IDE
 .idea/
 .vscode/
+
+# Jupyter file
+preprocessing.ipynb
