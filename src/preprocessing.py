@@ -1,47 +1,54 @@
+# TextPreprocessor Class to clean raw datasets
+
+# REFERENCE:
+# GITHUB LINK !!!!!!!!
+
 import re
-import pandas as pd
+from html import unescape
+
+class TextPreprocessor:
+
+    def __init__(self):
+        pass
+
+    def clean_text(self, t):
+        t = self.clean_markdown(t)
+        t = t.replace("\n"," ")
+        t = t.replace("\t"," ")
+        t = t.replace("^M"," ")
+        t = t.replace("\r"," ")
+        t = t.replace(" ,", ",")
+        t = re.sub(" +", " ", t)
+        return t
+
+    def clean_markdown(self, md_text):
+        # Remove code blocks
+        md_text = re.sub(r'```.*?```', '', md_text, flags=re.DOTALL)
+        # Remove inline code
+        md_text = re.sub(r'`[^`]*`', '', md_text)
+        # Remove images
+        md_text = re.sub(r'!\[.*?\]\(.*?\)', '', md_text)
+        # Remove links but keep link text
+        md_text = re.sub(r'\[([^\]]+)\]\(.*?\)', r'\1', md_text)
+        # Remove bold and italic (groups of *, _)
+        md_text = re.sub(r'(\*\*|__)(.*?)\1', r'\2', md_text)
+        md_text = re.sub(r'(\*|_)(.*?)\1', r'\2', md_text)
+        # Remove headings
+        md_text = re.sub(r'#+ ', '', md_text)
+        # Remove blockquotes
+        md_text = re.sub(r'^>.*$', '', md_text, flags=re.MULTILINE)
+        # Remove list markers
+        md_text = re.sub(r'^(\s*[-*+]|\d+\.)\s+', '', md_text, flags=re.MULTILINE)
+        # Remove horizontal rules
+        md_text = re.sub(r'^\s*[-*_]{3,}\s*$', '', md_text, flags=re.MULTILINE)
+        # Remove tables
+        md_text = re.sub(r'\|.*?\|', '', md_text)
+        # Remove raw HTML tags
+        md_text = re.sub(r'<.*?>', '', md_text)
+        # Decode HTML entities
+        md_text = unescape(md_text)
+        return md_text
 
 
-def has_repeating_sentences(text, min_sentence_length=25):
-    """Returns True if any sentence of substantial length repeats inside the text."""
-    text_str = str(text).strip()
-
-    # Split text into sentences using standard punctuation boundaries (. ! ?)
-    sentences = re.split(r"(?<=[.!?])\s+", text_str)
-
-    # Clean sentences and filter out short fragments or empty strings
-    clean_sentences = [
-        s.strip() for s in sentences if len(s.strip()) >= min_sentence_length
-    ]
-
-    # Convert to a set to find unique items
-    unique_sentences = set(clean_sentences)
-
-    # If the counts match, every sentence is unique. If not, a loop occurred!
-    return len(clean_sentences) != len(unique_sentences)
 
 
-# 1. Load your raw master dataset
-df_raw = df
-initial_count = len(df_raw)
-
-# 2. Apply the dynamic loop detector across the entire file
-df_raw["is_looping"] = df_raw["generation"].apply(has_repeating_sentences)
-
-# 3. Drop all looping rows along with the previous placeholder checks
-df_clean = df_raw[
-    (df_raw["generation"].str.len() > 150) &  # Increased from 50 to 150 to catch blog headers
-    (~df_raw["generation"].str.contains(r"Posted in|Tagged |Leave a comment", case=False, na=False)) & # New web filter
-    (~df_raw["generation"].str.lower().str.contains(r"\[full version")) & # Original check
-    (~df_raw["generation"].str.contains(r"\.\.\.")) & # Original check
-    (~df_raw["is_looping"])  # Original loop filter
-].reset_index(drop=True)
-
-# Remove the temporary boolean tracking column
-df_clean = df_clean.drop(columns=["is_looping"])
-df = df_clean
-final_count = len(df_clean)
-print(
-    f"🧹 Data Cleansed! Removed {initial_count - final_count} total corrupted rows."
-)
-print(f"📊 Pristine source rows remaining: {final_count}")
