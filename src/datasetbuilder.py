@@ -1,3 +1,6 @@
+# DatasetBuilder Class to reconstruct raw datasets
+# REFACTOR: do not repeat blocks of code...
+
 import pandas as pd
 
 
@@ -7,10 +10,19 @@ class DatasetBuilder:
         pass
 
     def build_dataset(
-        self, df_pure_human, df_pure_ai, df_ai_polished, df_humanised
+        self,
+        pure_human_path,
+        pure_ai_path,
+        ai_polished_path,
+        humanised_path,
     ):
         # List to gather all processed datasets
         all_datasets = []
+
+        df_pure_human = pd.read_csv(pure_human_path)
+        df_pure_ai = pd.read_csv(pure_ai_path)
+        df_ai_polished = pd.read_csv(ai_polished_path)
+        df_humanised = pd.read_csv(humanised_path)
 
         # Restructures pure human dataset with label: 0
         pure_human_dataset = pd.DataFrame(
