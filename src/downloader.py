@@ -14,20 +14,20 @@ class DatasetDownloader:
 
         self.datasets = [
             {
-                "id": "16hDeETXMq4-o67YSqguDk6OC3VvXW7U7",
-                "filename": "ai_written_humanised_v3_last2500.csv",
+                "id": "1v8ZKV3p6KLDMsOscVLj1Z5zgNYGJfaQp",
+                "filename": "humanised_v2_first_2400.csv",
             },
             {
-                "id": "1cAL9qHhyYIVnR0kxMBlzRFFyrZqiCf6O",
-                "filename": "HUMAN_written_then_AI_polished_v3_last2500.csv",
+                "id": "1U9Lhpo2qet7dPAuswxHFGAJEggc26bR0",
+                "filename": "ai_polished_v2_first_2400.csv",
             },
             {
-                "id": "1LlTrJ6wdRkctvpT21O_XkNTfrHOBhX6L",
-                "filename": "ai_generated_v2_last2500.csv",
+                "id": "182-e58HGw67tacTudS7wacm6DZZCbMEZ",
+                "filename": "pure_ai_v2_first_2400.csv",
             },
             {
-                "id": "1Meg3aFojjCGefepim0zVsArmze_5ttGy",
-                "filename": "human_written_v2_last2500.csv",
+                "id": "15BDFQcaylNmK6Uy-BaKKe__jXQ6MgdmK",
+                "filename": "pure_human_v2_first_2400.csv",
             },
         ]
 
