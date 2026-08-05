@@ -14,12 +14,13 @@ class TextPreprocessor:
     def clean_text(self, t):
         t = self.clean_markdown(t)
         t = t.replace("\n"," ")
+        t = t.replace("\\n", " ")     # Removes newline characters created by the LLM during dataset generation pipeline
         t = t.replace("\t"," ")
         t = t.replace("^M"," ")
         t = t.replace("\r"," ")
         t = t.replace(" ,", ",")
         t = re.sub(" +", " ", t)
-        return t
+        return t.strip()              # Removes whitespaces at the beginning and end of each text created by character and line removals. 
 
     def clean_markdown(self, md_text):
         # Remove code blocks
