@@ -13,7 +13,6 @@ venv/
 
 # Dataset
 data/
-datasets/
 
 # Hugging Face models/cache
 .cache/
@@ -28,3 +27,6 @@ huggingface/
 
 # Jupyter file
 preprocessing.ipynb
+
+# Model files
+model/
