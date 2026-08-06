@@ -1,5 +1,5 @@
 # DatasetBuilder Class to reconstruct raw datasets
-# REFACTOR: do not repeat blocks of code...
+# REFACTOR!!: do not repeat blocks of code...
 
 import pandas as pd
 
@@ -8,6 +8,21 @@ class DatasetBuilder:
 
     def __init__(self):
         pass
+
+        self.raw_dataset_paths = [
+            {
+                "pure_human": "../data/pure_human_v2_first_2400.csv"
+            },
+            {
+                "pure_ai": "../data/pure_ai_v2_first_2400.csv"
+            },
+            {
+                "ai_polished": "../data/ai_polished_v2_first_2400.csv"
+            },
+            {
+                "humanised": "../data/humanised_v2_first_2400.csv"
+            },
+        ]
 
     def build_dataset(
         self,
