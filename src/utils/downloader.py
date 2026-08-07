@@ -15,6 +15,7 @@ class Downloader:
 
         os.makedirs(self.dataset_dir, exist_ok=True)
         os.makedirs(self.model_dir, exist_ok=True)
+        
 
         self.datasets = [
             {
@@ -37,8 +38,8 @@ class Downloader:
 
         self.models = [
             {
-                "id": "",
-                "filename": ""
+                "id": "1eU0eQVm0--OCHz_OHsM80o7Mo0E85LCg",
+                "filename": "version_1.zip"
             }
         ]
 
@@ -51,15 +52,16 @@ class Downloader:
             self.download_data_from_shared_link( url, file_path)
 
     def start_downloading_model(self):
+
             for model in self.models:
                 url = f"https://drive.google.com/uc?id={model['id']}"
-                file_path = f"../data/{model['filename']}"
+                file_path =f"../model/{model['filename']}"
+                
                 self.download_data_from_shared_link( url, file_path)
 
-                # Extracts the ZIP file into a local dataset directory
-
-            with zipfile.ZipFile("train.zip", 'r') as zip_ref:
-                zip_ref.extractall("dataset")
+            # Extracts the ZIP file into a local directory
+            with zipfile.ZipFile("../model/version_1.zip", 'r') as zip_ref:
+                zip_ref.extractall("../model/")
 
     
     # gdown downloader helper function
