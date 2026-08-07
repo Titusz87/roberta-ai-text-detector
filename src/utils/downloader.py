@@ -2,15 +2,19 @@
 
 import os
 import gdown
+import zipfile
 
 
-class DatasetDownloader:
-    def __init__(self, data_dir="../data"):
+class Downloader:
+    def __init__(self, dataset_dir="../data", model_dir="../model"):
 
     ### Fields
     
-        self.data_dir = data_dir
-        os.makedirs(self.data_dir, exist_ok=True)
+        self.dataset_dir = dataset_dir
+        self.model_dir = model_dir
+
+        os.makedirs(self.dataset_dir, exist_ok=True)
+        os.makedirs(self.model_dir, exist_ok=True)
 
         self.datasets = [
             {
@@ -31,6 +35,13 @@ class DatasetDownloader:
             },
         ]
 
+        self.models = [
+            {
+                "id": "",
+                "filename": ""
+            }
+        ]
+
     ### Methods
 
     def start_downloading_dataset(self):
@@ -39,9 +50,20 @@ class DatasetDownloader:
             file_path = f"../data/{data['filename']}"
             self.download_data_from_shared_link( url, file_path)
 
+    def start_downloading_model(self):
+            for model in self.models:
+                url = f"https://drive.google.com/uc?id={model['id']}"
+                file_path = f"../data/{model['filename']}"
+                self.download_data_from_shared_link( url, file_path)
+
+                # Extracts the ZIP file into a local dataset directory
+
+            with zipfile.ZipFile("train.zip", 'r') as zip_ref:
+                zip_ref.extractall("dataset")
+
     
     # gdown downloader helper function
-    # REFERENCE:
+    # REFERENCE: https://github.com/wkentaro/gdown
 
     def download_data_from_shared_link(self, url, file_path):
         # Downloads dataset from a Google Drive shared link
