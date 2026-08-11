@@ -38,8 +38,8 @@ class Downloader:
 
         self.models = [
             {
-                "id": "1sEtz9uW2ta5r98BWtDyjrCtLp5mWDBrz",      # Current best model
-                "filename": "model_version_#1_loss=0.03690593994300192.zip"
+                "id": "1MatKPKXHSUa8RbryhmR43nUH6e6wgmZk",      # Current best model
+                "filename": "model_version_#5_loss_0.03069869413933096.zip"
             }
         ]
 
@@ -60,7 +60,7 @@ class Downloader:
                 self.download_data_from_shared_link( url, file_path)
 
             # Extracts the ZIP file into a local directory
-            with zipfile.ZipFile("../model/model_version_#1_loss=0.03690593994300192.zip", 'r') as zip_ref:
+            with zipfile.ZipFile(file_path, 'r') as zip_ref:
                 zip_ref.extractall("../model/")
 
     
