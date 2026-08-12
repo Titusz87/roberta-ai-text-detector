@@ -1,4 +1,4 @@
-# Downloader Class to fetch datasets from Google Drive
+# Downloader Class to fetch datasets, models and loss logs from Google Drive
 
 import os
 import gdown
@@ -6,15 +6,17 @@ import zipfile
 
 
 class Downloader:
-    def __init__(self, dataset_dir="../data", model_dir="../model"):
+    def __init__(self, dataset_dir="../data", model_dir="../model", loss_dir="../loss" ):
 
     ### Fields
     
         self.dataset_dir = dataset_dir
         self.model_dir = model_dir
+        self.loss_dir = loss_dir
 
         os.makedirs(self.dataset_dir, exist_ok=True)
         os.makedirs(self.model_dir, exist_ok=True)
+        os.makedirs(self.loss_dir, exist_ok=True)
         
 
         self.datasets = [
@@ -43,6 +45,20 @@ class Downloader:
             }
         ]
 
+        self.losses = [
+            {
+                "id": "17Tpzq9fjzB-sTx1kA6QJKHbGLFwxi1U3",   
+                "filename": "lr=2e-5_epochs_10.zip"  # current best model's loss logs
+            },
+            {
+                "id": "18BinGfAgLjSfYvUHso-awCM6YsailVNZ",
+                "filename": "lr=2e-5_epochs=5.zip",
+            },
+            {
+                "id": "1wKWPzQkYxteqnjpZx6aHD3DP_Lz4iruM",
+                "filename": "lr=5e-5_epochs=5.zip",
+            }
+        ]
     ### Methods
 
     def start_downloading_dataset(self):
@@ -50,6 +66,12 @@ class Downloader:
             url = f"https://drive.google.com/uc?id={data['id']}"
             file_path = f"../data/{data['filename']}"
             self.download_data_from_shared_link( url, file_path)
+
+    def start_downloading_logs(self):
+            for log in self.logs:
+                url = f"https://drive.google.com/uc?id={log['id']}"
+                file_path = f"../data/{log['filename']}"
+                self.download_data_from_shared_link( url, file_path)
 
     def start_downloading_model(self):
 
