@@ -11,9 +11,6 @@ venv/
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
-# Dataset
-data/
-
 # Hugging Face models/cache
 .cache/
 huggingface/
@@ -30,3 +27,9 @@ preprocessing.ipynb
 
 # Model files
 model/
+
+# Dataset files
+data/
+
+# Log files
+logs/

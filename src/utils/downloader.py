@@ -6,7 +6,7 @@ import zipfile
 
 
 class Downloader:
-    def __init__(self, dataset_dir="../data", model_dir="../model", loss_dir="../loss" ):
+    def __init__(self, dataset_dir="../data", model_dir="../model", loss_dir="../logs/loss" ):
 
     ### Fields
     
@@ -65,13 +65,8 @@ class Downloader:
         for data in self.datasets:
             url = f"https://drive.google.com/uc?id={data['id']}"
             file_path = f"../data/{data['filename']}"
-            self.download_data_from_shared_link( url, file_path)
 
-    def start_downloading_logs(self):
-            for log in self.logs:
-                url = f"https://drive.google.com/uc?id={log['id']}"
-                file_path = f"../data/{log['filename']}"
-                self.download_data_from_shared_link( url, file_path)
+            self.download_data_from_shared_link( url, file_path)
 
     def start_downloading_model(self):
 
@@ -84,6 +79,17 @@ class Downloader:
             # Extracts the ZIP file into a local directory
             with zipfile.ZipFile(file_path, 'r') as zip_ref:
                 zip_ref.extractall("../model/")
+
+    def start_downloading_logs(self):
+            for loss in self.losses:
+                url = f"https://drive.google.com/uc?id={loss['id']}"
+                file_path = f"../logs/loss/{loss['filename']}"
+
+                self.download_data_from_shared_link( url, file_path)
+
+                # Extracts the ZIP file into a local directory
+                with zipfile.ZipFile(file_path, 'r') as zip_ref:
+                    zip_ref.extractall("../logs/loss/")
 
     
     # gdown downloader helper function
