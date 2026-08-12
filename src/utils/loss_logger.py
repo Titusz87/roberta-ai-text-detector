@@ -3,8 +3,6 @@ import datetime
 import os
 
 def save_log(train_losses, val_losses, batch_losses,number_of_epochs,learning_rate):
-
-    os.makedirs(self.dataset_dir, exist_ok=True)
     
     # Epoch-level log
     loss_log = pd.DataFrame({
