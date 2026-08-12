@@ -13,7 +13,7 @@ def save_log(train_losses, val_losses, batch_losses,number_of_epochs,learning_ra
         "validation_loss": val_losses
     })
 
-    loss_log.to_csv(f"../data/loss/lr={learning_rate}_epochs_{number_of_epochs}_{datetime.date}/training_loss_log.csv", index=False)
+    loss_log.to_csv(f"../logs/loss/lr={learning_rate}_epochs_{number_of_epochs}_{datetime.date}/training_loss_log.csv", index=False)
 
     # Batch-level log
     batch_log = pd.DataFrame({
@@ -21,6 +21,6 @@ def save_log(train_losses, val_losses, batch_losses,number_of_epochs,learning_ra
         "training_loss": batch_losses
     })
 
-    batch_log.to_csv(f"../data/loss/lr={learning_rate}_epochs_{number_of_epochs}_{datetime.date}/batch_loss_log.csv", index=False)
+    batch_log.to_csv(f"../logs/loss/lr={learning_rate}_epochs_{number_of_epochs}_{datetime.date}/batch_loss_log.csv", index=False)
 
     print("Training logs saved at .")
