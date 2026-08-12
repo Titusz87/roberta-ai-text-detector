@@ -2,7 +2,7 @@
 
 import torch
 
-def inference_pipeline(input_text, model, text_preprocessor, tokenizer, device):
+def inference_pipeline(input_text, text_preprocessor, model, tokenizer, device):
     model.eval()
 
     cleaned_text=text_preprocessor.clean_text(input_text)
