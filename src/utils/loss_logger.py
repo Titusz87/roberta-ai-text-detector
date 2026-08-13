@@ -2,6 +2,7 @@ import pandas as pd
 import datetime
 
 def save_log(train_losses, val_losses, batch_losses,number_of_epochs,optimiser):
+    lr =optimiser.param_groups[0]['lr']
     
     # Epoch-level log
     loss_log = pd.DataFrame({
@@ -10,7 +11,7 @@ def save_log(train_losses, val_losses, batch_losses,number_of_epochs,optimiser):
         "validation_loss": val_losses
     })
 
-    loss_log.to_csv(f"../logs/loss/lr={optimiser.param_groups[0]['lr']}_epochs_{number_of_epochs}_{datetime.date}/training_loss_log.csv", index=False)
+    loss_log.to_csv(f"../logs/loss/lr={lr}_epochs_{number_of_epochs}_{datetime.date}/training_loss_log.csv", index=False)
 
     # Batch-level log
     batch_log = pd.DataFrame({
@@ -18,6 +19,6 @@ def save_log(train_losses, val_losses, batch_losses,number_of_epochs,optimiser):
         "training_loss": batch_losses
     })
 
-    batch_log.to_csv(f"../logs/loss/lr={optimiser.param_groups[0]['lr']}_epochs_{number_of_epochs}_{datetime.date}/batch_loss_log.csv", index=False)
+    batch_log.to_csv(f"../logs/loss/lr={lr}_epochs_{number_of_epochs}_{datetime.date}/batch_loss_log.csv", index=False)
 
-    print("Training logs saved at /logs/loss/.")
+    print(f"Training logs saved at /logs/loss/.")
