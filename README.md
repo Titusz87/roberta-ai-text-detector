@@ -9,12 +9,7 @@
 </div>
 
 
-
-
-
-<!-- ABOUT THE PROJECT -->
 ### About The Project
-
 
 
 
@@ -26,13 +21,7 @@
 
 
 
-
-
-
-
-<!-- GETTING STARTED -->
 ## Getting Started
-
 
 
 
@@ -42,20 +31,7 @@
 ### Installation
 
 
-## Application Services
-
-
-
-
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-<!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
