@@ -21,20 +21,20 @@ class Downloader:
 
         self.datasets = [
             {
-                "id": "1v8ZKV3p6KLDMsOscVLj1Z5zgNYGJfaQp",
-                "filename": "humanised_v2_first_2400.csv",
+                "id": "19etkvYMcxOwKDpX_d3069YmAv1UXuZku",
+                "filename": "humanised_first_2000.csv",
             },
             {
-                "id": "1U9Lhpo2qet7dPAuswxHFGAJEggc26bR0",
-                "filename": "ai_polished_v2_first_2400.csv",
+                "id": "12IAqrDtXtS6W08-Qy0fNhmmS62bGdUmS",
+                "filename": "ai_polished_first_2000.csv",
             },
             {
-                "id": "182-e58HGw67tacTudS7wacm6DZZCbMEZ",
-                "filename": "pure_ai_v2_first_2400.csv",
+                "id": "1cMnmb5MBfXNDxYnx0R7xsOovywZvh7yQ",
+                "filename": "pure_ai_first_2000.csv",
             },
             {
-                "id": "15BDFQcaylNmK6Uy-BaKKe__jXQ6MgdmK",
-                "filename": "pure_human_v2_first_2400.csv",
+                "id": "1nJHkqxdrFbz9XNdk8tWKlxsnQ8XoLFHf",
+                "filename": "pure_human_first_2000.csv",
             },
         ]
 
