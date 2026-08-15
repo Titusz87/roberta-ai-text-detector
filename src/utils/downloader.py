@@ -40,8 +40,8 @@ class Downloader:
 
         self.models = [
             {
-                "id": "1MatKPKXHSUa8RbryhmR43nUH6e6wgmZk",      # Current best model
-                "filename": "model_version_#5_loss_0.03069869413933096.zip"
+                "id": "1ZHGSJggVrfRdmfsOTBzSM3YhygWZ01Bl",      # Current best model
+                "filename": "model_version_#2_loss_0.4183977127075195.zip"
             }
         ]
 
