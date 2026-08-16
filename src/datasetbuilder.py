@@ -11,16 +11,16 @@ class DatasetBuilder:
 
         self.raw_dataset_paths = [
             {
-                "pure_human": "../data/pure_human_first_2000.csv"
+                "pure_human": "../data/pure_human_v2_first_2400.csv"
             },
             {
-                "pure_ai": "../data/pure_ai_first_2000.csv"
+                "pure_ai": "../data/pure_ai_v2_first_2400.csv"
             },
             {
-                "ai_polished": "../data/ai_polished_first_2000.csv"
+                "ai_polished": "../data/ai_polished_v2_first_2400.csv"
             },
             {
-                "humanised": "../data/humanised_first_2000.csv"
+                "humanised": "../data/humanised_v2_first_2400.csv"
             },
         ]
 
