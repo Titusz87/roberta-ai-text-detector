@@ -29,9 +29,3 @@
 
 
 ### Installation
-
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
