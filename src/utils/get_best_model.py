@@ -1,5 +1,4 @@
 # Helper function to return the model path with the lowest loss
-#REFERENCE: https://stackoverflow.com/questions/59122657/is-there-a-way-in-python-to-find-a-file-with-the-smallest-number-in-its-name
 
 import os
 

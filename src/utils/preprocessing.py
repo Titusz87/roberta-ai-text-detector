@@ -1,8 +1,5 @@
 # TextPreprocessor Class to clean raw datasets
 
-# REFERENCE:
-# GITHUB LINK !!!!!!!!
-
 import re
 from html import unescape
 

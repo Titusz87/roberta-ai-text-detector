@@ -1,9 +1,5 @@
 # DatasetWrapper transforms dataset into compatible pytorch tensors
 
-# REFERENCE:
-# https://huggingface.co/transformers/v3.2.0/custom_datasets.html
-
-
 import torch
 
 class DatasetWrapper():
