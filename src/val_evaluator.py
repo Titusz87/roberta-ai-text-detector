@@ -1,5 +1,4 @@
 # Validation function with Early Stopping and best model saving mechanism
-# REFERENCE: https://discuss.pytorch.org/t/train-py-use-early-stoping/96912/2?utm_source=chatgpt.com
 
 import torch
 
