@@ -1,5 +1,5 @@
 # DatasetBuilder Class to reconstruct raw datasets
-# REFACTOR!!: do not repeat blocks of code...
+# TODO: REFACTOR!!
 
 import pandas as pd
 
