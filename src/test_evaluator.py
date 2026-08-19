@@ -1,5 +1,5 @@
 # TestEvaluator Class to calculate and log evaluation metrics on the test set
-# REFERENCE: https://apxml.com/courses/getting-started-with-pytorch/chapter-6-implementing-training-loop/implementing-evaluation-loop
+# TODO:READ: https://apxml.com/courses/getting-started-with-pytorch/chapter-6-implementing-training-loop/implementing-evaluation-loop
 
 import torch
 from sklearn.metrics import accuracy_score, classification_report
