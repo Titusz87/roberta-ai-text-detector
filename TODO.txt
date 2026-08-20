@@ -1,1 +1,5 @@
 - Remove jupyter notebook and create a main file to execute that is implemented in there
+- Test model on external dataset
+- Create a logic that would return the part that are AI generated or humanised (just like in Turnitin)
+- deploy
+- create CI/CD

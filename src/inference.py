@@ -1,4 +1,3 @@
-
 import torch
 
 def inference_pipeline(input_text, text_preprocessor, model, tokenizer, device):
