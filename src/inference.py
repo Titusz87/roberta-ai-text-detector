@@ -1,4 +1,3 @@
-# TODO: READ: https://docs.pytorch.org/docs/2.13/generated/torch.where.html
 
 import torch
 
